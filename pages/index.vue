@@ -1,12 +1,5 @@
 <template>
   <div>
-    Pagina Inicial
+    Home Page
   </div>
 </template>
-
-<script>
-export default {
-  layout: 'default',
-  name: 'IndexPage'
-}
-</script>

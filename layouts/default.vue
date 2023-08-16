@@ -1,6 +1,7 @@
 <template>
   <div>
-    Template Default
-    <Nuxt />
+    Layout Default
+
+    <slot/>
   </div>
 </template>

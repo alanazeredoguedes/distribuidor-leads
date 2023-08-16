@@ -1,11 +1,13 @@
 <template>
   <div>
-    Login
+    Login Page
   </div>
 </template>
-<script>
-export default {
-  layout: 'auth',
+<script setup lang="ts">
+//import {definePageMeta} from "nuxt/dist/pages/runtime";
 
-}
+definePageMeta({
+  layout: 'auth'
+})
+
 </script>

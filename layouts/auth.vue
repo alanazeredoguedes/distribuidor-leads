@@ -1,8 +1,7 @@
 <template>
-    <div>
-      Auth  Layout
-      <Nuxt />
-    </div>
+  <div>
+    Layout Auth
+
+    <slot/>
+  </div>
 </template>
-<script setup>
-</script>
