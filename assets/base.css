@@ -1,0 +1,21 @@
+/** VUE SELECT CSS */
+.vSelectClass .vs__search::placeholder,
+.vSelectClass .vs__dropdown-toggle,
+.vSelectClass .vs__dropdown-menu {
+    background: var(--kt-input-solid-bg);
+    border: none;
+    color: #394066;
+    font-family: Inter,Helvetica,sans-serif;
+    height: 50px;
+}
+/*.vSelectClass .vs__selected{*/
+/*    //font-size: 14px;*/
+/*}*/
+.vSelectClass .vs__dropdown-menu{
+    height: auto !important;
+}
+
+.vSelectClass .vs__clear,
+.vSelectClass .vs__open-indicator {
+    fill: #394066;
+}
