@@ -23,10 +23,10 @@
 
       <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2" :style="'background-image: url('+ bg +')'">
         <div class="d-flex flex-column flex-center py-15 px-5 px-md-15 w-100">
-          <a href="" class="mb-12">
+          <nuxt-link :to="{name: 'index'}" class="mb-12">
             <!--            <img alt="Logo" src="assets/media/logos/custom-1.png" class="h-75px" />-->
             <h1 style="color: white" class="text-center text-white fs-3qx fw-bolder text-center mb-7">Sistema Unico de <br>Integração</h1>
-          </a>
+          </nuxt-link>
           <img class="mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20" src="@/assets/media/misc/auth-screens.png" alt="" />
           <h1 class="text-white ">Rápido, Eficiente e Produtivo</h1>
           <div class="text-white fs-base text-center">
@@ -53,6 +53,11 @@ import bg from 'assets/media/misc/auth-bg.png'
 
 onMounted(()=>{
   document.querySelector('#__nuxt').className = 'd-flex flex-column flex-root'
+  document.querySelector('body').style.backgroundImage='none';
+})
+
+onUpdated(()=>{
+
 })
 
 

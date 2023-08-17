@@ -17,5 +17,4 @@ const sessionStorage = {
         window.localStorage.removeItem(key)
     }
 }
-
 export default sessionStorage

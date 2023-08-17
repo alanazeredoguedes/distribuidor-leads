@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 export const alerts = {
 
-    notification: (ico, title, message, timer = 2000) => {
+    notification: (ico, title, message, timer = 1000) => {
         return Swal.mixin({
             toast: true,
             position: 'top-end',

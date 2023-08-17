@@ -32,26 +32,11 @@
     </form>
   </div>
 </template>
+
 <script setup lang="ts">
-//import {definePageMeta} from "nuxt/dist/pages/runtime";
 import { useUserStore } from "~/stores/userStore";
 const userStore = useUserStore();
-
 import {alerts} from "~/components/alerts";
-
-
-const axios = useNuxtApp().$axios
-
-axios.get('/api/v2/pokemon/ditto').then((data)=>{
-  console.log(data)
-})
-
-
-
-
-
-
-
 
 definePageMeta({ layout: 'auth' })
 
@@ -60,9 +45,26 @@ let user = {
   password: '',
 }
 
-
 let login = ()=>{
+  alerts.modalLoading();
 
+  userStore.login(user.email, user.password)
+      .then( (response) => {
+        alerts.notification('success', "Autenticado com Sucesso!", 'Sucesso ao logar no sistema.', 1000)
+        setTimeout(()=>{
+          navigateTo({name: 'painel'})
+          //this.$router.push({ name: 'home' })
+        },1500)
+      })
+      .catch((responseError) => {
+
+        if (responseError.response.status === 406){
+          alerts.notification('error', "Erro", responseError.response.data.message)
+        }else{
+          alerts.notification('error', "Erro", 'Falha ao se autenticar!')
+        }
+
+      })
 
 }
 

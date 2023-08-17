@@ -1,7 +1,8 @@
 import axios from 'axios'
-import { URI, BASE_URI, API_VERSION, TOKEN_NAME } from '@/config/api'
+import { URI, BASE_URI, API_VERSION, TOKEN_NAME } from '@/configs/api'
 import sessionStorage from "@/components/session-storage";
-
+// import {useUserStore} from "~/stores/userStore";
+// const userStore = useUserStore();
 
 axios.defaults.baseURL = `${BASE_URI}`
 
@@ -24,10 +25,12 @@ axios.interceptors.response.use(function (response) {
     const token = sessionStorage.get(TOKEN_NAME)
 
     if (error.response.status === 401 && token) {
-        // store.commit("SET_UNAUTHENTICATED")
+
+        sessionStorage.remove(TOKEN_NAME)
+
+        // userStore.setUnauthenticated()
         // functions.alerts.notification('error', "Erro", 'Credenciais expiradas!')
         // router.push({name: 'login'})
-
 
 
 
@@ -42,9 +45,6 @@ axios.interceptors.response.use(function (response) {
 
     return Promise.reject(error);
 });
-
-
-
 
 
 export default defineNuxtPlugin(async ()=> {
