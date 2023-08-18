@@ -9,29 +9,29 @@
             </span>
         </nuxt-link>
 
-        <nuxt-link :class="getClassMenu(['painel-empresas', 'painel-empresas-editar-id'])" :to="{name: 'painel-empresas'}">
+        <nuxt-link :class="getClassMenu(['painel-empresas', 'painel-empresas-id'])" :to="{name: 'painel-empresas'}">
             <span class="menu-link py-3">
                 <span class="menu-title">Empresas</span>
             </span>
         </nuxt-link>
-        <!--
+
                 <router-link :class="getClassMenu([
-                    'formularios_list',
-                    'formularios_create',
-                    'formularios_edit',
-                    'formularios_edit_visaoGeral',
-                    'formularios_edit_dados',
-                    'formularios_edit_relatorios',
-                    'formularios_edit_integracoes',
-                    'formularios_edit_configuracoes',
-                    'formularios_edit_campos',
-                    'formularios_edit_notificacoes',
-                    'formularios_edit_logs',
-                ])" :to="{name: 'formularios_list'}">
+                    'painel-formularios',
+                    'painel-formularios-criar',
+                    // 'formularios_edit',
+                    // 'formularios_edit_visaoGeral',
+                    // 'formularios_edit_dados',
+                    // 'formularios_edit_relatorios',
+                    // 'formularios_edit_integracoes',
+                    // 'formularios_edit_configuracoes',
+                    // 'formularios_edit_campos',
+                    // 'formularios_edit_notificacoes',
+                    // 'formularios_edit_logs',
+                ])" :to="{name: 'painel-formularios'}">
                     <span class="menu-link py-3">
                         <span class="menu-title">Formulários</span>
                     </span>
-                </router-link>-->
+                </router-link>
 
       </div>
     </div>

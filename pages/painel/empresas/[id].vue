@@ -157,7 +157,6 @@
       </div>
 
       <div class="d-flex justify-content-end">
-        <a href="" class="btn btn-light me-5">Cancelar</a>
         <button type="submit" class="btn btn-primary">
           <span class="indicator-label">Salvar</span>
         </button>
@@ -227,10 +226,14 @@ const editEmpresa = ()=>{
     const formData = new FormData(form);
     formData.append("empresa", route.params.id);
 
-    this.updateEmpresa({id,formData})
+    alerts.notification('info', "Aguarde!", 'Atualizando Informações!')
+
+    empresaStore.updateEmpresa(formData)
         .then( response => {
           alerts.notification('success', "Sucesso", 'Sucesso ao atualizar Empresa')
-          this.getEmpresa(id)
+          setTimeout(()=>{
+            getEmpresa(route.params.id)
+          },1000)
         })
         .catch( response => {
           alerts.notification('error', "Erro", 'Falha ao atualizar Empresa')

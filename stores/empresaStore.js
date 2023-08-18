@@ -16,10 +16,9 @@ export const useEmpresaStore = defineStore('empresa', {
                 .then( response => this.empresa = response.data )
         },
         updateEmpresa(data){
-            return axios.post(`/empresa`, data.formData, {
+            return axios.post(`/empresa`, data, {
                 headers: { "Content-Type": "multipart/form-data", }
             })
-            //.then( response =>  )
         }
     },
     getters: {

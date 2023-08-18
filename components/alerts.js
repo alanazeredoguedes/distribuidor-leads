@@ -35,7 +35,7 @@ export const alerts = {
 
         document.querySelector('body').classList.remove('swal2-height-auto');
     },
-    modalConfirm: (title, text, callbackConfirm = ()=>{}, callbackCancel = ()=>{}, width = '30%' )=>{
+    modalConfirm: (title, text, callbackConfirm = ()=>{}, callbackCancel = ()=>{}, width = '500px' )=>{
         Swal.fire({
             title: title,
             html: text,

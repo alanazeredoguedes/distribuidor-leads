@@ -4,7 +4,11 @@ export default defineNuxtConfig({
     devtools: {
         enabled: true
     },
+    plugins: [
+        //{ src: ' ~/plugins/bootstrap.js', mode: 'client'}
+    ],
     modules: [
-        '@pinia/nuxt'
+        '@pinia/nuxt',
+        //'@boostrap'
     ]
 })
