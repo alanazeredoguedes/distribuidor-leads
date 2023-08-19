@@ -26,6 +26,7 @@
 @import url("https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700");
 @import url("@/assets/css/style.bundle.css");
 @import url("@/assets/plugins/global/plugins.bundle.css");
+@import "vue-multiselect/dist/vue-multiselect.css";
 /*@import url("@/assets/plugins/global/fonts/bootstrap-icons/bootstrap-icons.woff");
 @import url("@/assets/plugins/global/fonts/bootstrap-icons/bootstrap-icons.woff2");*/
 </style>

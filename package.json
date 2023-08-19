@@ -21,6 +21,7 @@
     "bootstrap": "^4.0.0",
     "bootstrap-icons": "^1.10.5",
     "jquery": "^3.2.1",
-    "pinia": "^2.1.6"
+    "pinia": "^2.1.6",
+    "vue-multiselect": "^3.0.0-beta.2"
   }
 }
