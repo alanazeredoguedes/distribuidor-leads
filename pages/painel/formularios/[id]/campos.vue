@@ -7,6 +7,7 @@
       </div>
     </div>
 
+    <form @submit.prevent="salvar()">
     <div class="card-body pt-9">
       <div class="form-group">
         <div class="d-flex flex-column gap-3" >
@@ -17,6 +18,10 @@
                   <ExibirAltertaCampo nome="tipo" />
                   <div class="w-300 w-md-250px">
                     <VueMultiselectEsm
+                        deselect-label="Remover"
+                        select-label="Selecionar"
+                        selected-label="Selecionado"
+                        :allow-empty="false"
                         placeholder="Tipo do Campo"
                         v-model="campo.tipo"
                         :options="tiposCampos"
@@ -24,14 +29,18 @@
                   </div>
 
                   <ExibirAltertaCampo nome="nome" />
-                  <input v-model="campo.nome" v-on:keyup="filterCampo(campo)" type="text" class="form-control mw-100 w-250px" placeholder="Nome de Integração">
+                  <input v-model="campo.nome" v-on:keyup="filterCampo(campo)" type="text" class="form-control mw-100 w-250px" placeholder="Nome de Integração" required>
 
                   <ExibirAltertaCampo nome="label" />
-                  <input v-model="campo.label" type="text" class="form-control mw-100 w-250px" placeholder="Nome de Exibição">
+                  <input v-model="campo.label" type="text" class="form-control mw-100 w-250px" placeholder="Nome de Exibição" required>
 
                   <ExibirAltertaCampo nome="required" />
                   <div class="w-300 w-md-150px">
                     <VueMultiselectEsm
+                        :allow-empty="false"
+                        deselect-label="Remover"
+                        select-label="Selecionar"
+                        selected-label="Selecionado"
                         placeholder="Obrigatorio?"
                         v-model="campo.required"
                         :options="['Sim', 'Não']"
@@ -56,14 +65,17 @@
 
 
                   <ExibirAltertaCampo nome="comprimentoMin" v-if="campo.tipo === 'Texto'"/>
-                  <input v-if="campo.tipo === 'Texto'" v-model="campo.comprimentoMin" @change="checkRequiredCampo(index)" min="0" type="number" class="form-control mw-100 w-250px" placeholder="Comprimento Mínimo">
+                  <input v-if="campo.tipo === 'Texto'" v-model="campo.comprimentoMin" @change="checkRequiredCampo(index)" min="0" type="number" class="form-control mw-100 w-250px" placeholder="Comprimento Mínimo" required>
 
                   <ExibirAltertaCampo nome="comprimentoMax" v-if="campo.tipo === 'Texto'" />
-                  <input v-if="campo.tipo === 'Texto'" v-model="campo.comprimentoMax" @change="checkRequiredCampo(index)" min="0" type="number" class="form-control mw-100 w-250px" placeholder="Comprimento Máximo">
+                  <input v-if="campo.tipo === 'Texto'" v-model="campo.comprimentoMax" @change="checkRequiredCampo(index)" min="0" type="number" class="form-control mw-100 w-250px" placeholder="Comprimento Máximo" required>
 
                   <ExibirAltertaCampo nome="tipoArquivo" v-if="campo.tipo === 'Arquivo'" />
                   <div v-if="campo.tipo === 'Arquivo'" class="w-300 w-md-400px">
                     <VueMultiselectEsm
+                        deselect-label="Remover"
+                        select-label="Selecionar"
+                        selected-label="Selecionado"
                         placeholder="Tipo de Arquivo"
                         v-model="campo.tipoArquivo"
                         :options="tiposArquivos"
@@ -73,10 +85,10 @@
                   </div>
 
                   <ExibirAltertaCampo nome="qtdMinArquivo" v-if="campo.tipo === 'Arquivo'" />
-                  <input v-if="campo.tipo === 'Arquivo'" v-model="campo.qtdMinArquivo" @change="checkRequiredCampo(index)" min="0" type="number" class="form-control mw-100 w-300px" placeholder="Quantidade minima de arquivos">
+                  <input v-if="campo.tipo === 'Arquivo'" v-model="campo.qtdMinArquivo" @change="checkRequiredCampo(index)" min="0" type="number" class="form-control mw-100 w-300px" placeholder="Quantidade minima de arquivos" required>
 
                   <ExibirAltertaCampo nome="qtdMaxArquivo" v-if="campo.tipo === 'Arquivo'"/>
-                  <input v-if="campo.tipo === 'Arquivo'" v-model="campo.qtdMaxArquivo" @change="checkRequiredCampo(index)" min="0" type="number" class="form-control mw-100 w-300px" placeholder="Quantidade máxima de arquivos">
+                  <input v-if="campo.tipo === 'Arquivo'" v-model="campo.qtdMaxArquivo" @change="checkRequiredCampo(index)" min="0" type="number" class="form-control mw-100 w-300px" placeholder="Quantidade máxima de arquivos" required>
 
                 </div>
 
@@ -93,19 +105,29 @@
               Adicionar Campo
             </button>
           </div>
-    </div>
 
+
+    </div>
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+
+</form>
 
 
   </div>
 </template>
 <script setup>
 import $ from 'jquery'
+import {useFormularioStore} from "~/stores/formularioStore";
+const formularioStore = useFormularioStore();
 import {alerts} from "~/components/alerts";
+const route = useRoute();
+
 
 definePageMeta({
   layout: "painel",
-  title: 'Editar Formulário - Campos',
+  title: 'Formulário - Campos',
   middleware: 'auth',
   auth: true,
 })
@@ -187,30 +209,15 @@ const tiposArquivos = reactive([
   '.7z',
 ])
 
-
-
-
-
-const campos = reactive([
-  {
-    'tipo': 'Texto',
-    'nome': '',
-    'label': '',
-    'required': 'Não',
-    'comprimentoMin': 0,
-    'comprimentoMax': 120,
-    'tipoArquivo': '',
-    'qtdMinArquivo': 0,
-    'qtdMaxArquivo': 10,
-  },
-])
+const campos = reactive([])
+const camposHistorico = reactive([])
 
 const adicionarCampo = ()=>{
   campos.push({
     'tipo': 'Texto',
     'nome': '',
     'label': '',
-    'required': 'Não',
+    'required': 'Sim',
     'comprimentoMin': 0,
     'comprimentoMax': 120,
     'tipoArquivo': '',
@@ -218,9 +225,9 @@ const adicionarCampo = ()=>{
     'qtdMaxArquivo': 10,
   })
 
-  // let length = 0;
-  // campos.forEach((campo, index)=>{ length = index })
-  showDivExtraCampo = ref()
+   let length = 0;
+   campos.forEach((campo, index)=>{ length = index })
+    //showDivExtraCampo = ref(length)
 
 }
 
@@ -252,5 +259,33 @@ const filterCampo = (campo)=>{
 
   campo.label = campo.nome.charAt(0).toUpperCase() + campo.nome.slice(1)
 }
+
+onMounted(()=>{
+  alerts.notification('info', "Aguarde!", 'Consultando Informações!')
+  formularioStore.getFormularioCampos(route.params.id)
+      .then((response)=>{
+        alerts.notification('success', "Sucesso", 'Sucesso ao carregar Campos do Formulário!')
+        let camposAtual = response[0].campos
+
+        camposAtual.forEach((campo)=>{
+          campos.push(campo)
+        })
+        //campos.push(response[0].campos[0])
+      })
+      .catch(()=>{ alerts.notification('error', "Erro", 'Falha ao carregar Campos do Formulário!'); })
+})
+
+
+const salvar = ()=>{
+  let id = route.params.id
+  let data = {
+    campos: campos
+  }
+  formularioStore.updateFormularioCampos({id: id, data: data})
+      .then(()=>{
+        formularioStore.getFormulario(id)
+        alerts.notification('success', "Sucesso", 'Sucesso ao atualizar Campos do Formulário!')
+      }).catch(()=>{ alerts.notification('error', "Erro", 'Falha ao atualizar Campos do Formulário!'); })
+};
 
 </script>

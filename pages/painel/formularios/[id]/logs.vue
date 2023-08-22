@@ -181,7 +181,7 @@
 <script setup>
 definePageMeta({
   layout: "painel",
-  title: 'Editar Formulário - Logs',
+  title: 'Formulário - Logs',
   middleware: 'auth',
   auth: true,
 })

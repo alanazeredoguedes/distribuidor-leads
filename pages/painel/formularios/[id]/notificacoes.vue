@@ -4,7 +4,7 @@ Notificacoes
 <script setup>
 definePageMeta({
   layout: "painel",
-  title: 'Editar Formulário - Notificações',
+  title: 'Formulário - Notificações',
   middleware: 'auth',
   auth: true,
 })

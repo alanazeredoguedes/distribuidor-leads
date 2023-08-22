@@ -25,7 +25,7 @@
 
 
             <div class="col-2">
-              <nuxt-link :to="{name: 'painel-formularios-criar'}" class="btn btn-primary me-5" style="float: right">Criar Formulário</nuxt-link>
+              <button type="button" data-toggle="modal" data-target="#modalCriarFormulario" class="btn btn-primary me-5" style="float: right">Criar Formulário</button>
             </div>
 
           </div>
@@ -206,9 +206,12 @@
 
   </div>
 
+<ModalCriarFormulario/>
 
 </template>
 <script setup>
+import ModalCriarFormulario from "~/components/dashboard/modal/ModalCriarFormulario.vue";
+
 definePageMeta({
   layout: "painel",
   title: 'Formulários',

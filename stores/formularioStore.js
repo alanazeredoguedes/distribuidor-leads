@@ -6,7 +6,7 @@ export const useFormularioStore = defineStore('formulario', {
         formularios: [],
         formulario: null,
         selectStatus: [],
-        formularioDados: null,
+        formularioDados: [],
         formularioRelatorios: null,
         formularioIntegracoes: null,
         formularioCampos: null,
@@ -38,10 +38,27 @@ export const useFormularioStore = defineStore('formulario', {
             return axios.get( `/formularios/${id}/configuracoes`.replace('#','%23'),{
             }).then( response => this.formularioConfiguracoes = response.data )
         },
-        updateFormularioConfiguracoes( data){
+        updateFormularioConfiguracoes(data){
             //console.log(data)
             return axios.put( `/formularios/${data.id}/configuracoes`.replace('#','%23'), data.data)
                 .then( response => this.formularioConfiguracoes = response.data )
+        },
+        getFormularioCampos(id){
+            return axios.get( `/formularios/${id}/campos`.replace('#','%23'),{
+            }).then( response => this.formularioCampos = response.data )
+        },
+        updateFormularioCampos(data){
+            //console.log(data)
+            return axios.put( `/formularios/${data.id}/campos`.replace('#','%23'),data.data)
+                .then( response => this.formularioCampos = response.data )
+        },
+        getFormularioDados(id){
+            return axios.get( `/formularios/${id}/dados`.replace('#','%23'),{
+            }).then( response => this.formularioDados = response.data )
+        },
+        updateFormularioDados(data){
+            return axios.put( `/formularios/${data.id}/campos`.replace('#','%23'),data.data)
+                //.then( response => this.formularioCampos = response.data )
         },
     },
     getters: {

@@ -12,9 +12,10 @@
 
               <div class="d-flex flex-column">
                 <div class="d-flex align-items-center mb-1">
-                  <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bold me-3">{{ formularioStore.formulario.nome }}</a>
+                  <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bold me-3">{{ formularioStore.formulario.nome }} </a>
                   <span  v-if="formularioStore.formulario.status" v-bind:class="getStyleStatus()" class="badge me-auto">{{ formularioStore.formulario.status.status }}</span>
                 </div>
+                <b>{{ formularioStore.formulario.id }}</b>
               </div>
 
               <div class="d-flex mb-4">
@@ -102,7 +103,7 @@
 <script setup>
 definePageMeta({
   layout: "painel",
-  title: 'Editar Formulário',
+  title: 'Formulário',
   middleware: 'auth',
   auth: true,
 })
@@ -140,7 +141,7 @@ const deletarFormulario = ()=>{
       "Está é uma ação <b>Irreversível.</b> <br> Ao excluir um formulário, as suas configurações, leads e relatórios serão removidas!<br><br>",
       ()=>{
         formularioStore.deleteFormulario(route.params.id)
-            .then(()=>{ alerts.notification('success', "Sucesso", 'Formulário removido com Sucesso!'); setTimeout(()=>{ navigateTo({name: 'painel-formularios'}) },1500) })
+            .then(()=>{ alerts.notification('success', "Sucesso", 'Formulário removido com Sucesso!'); setTimeout(()=>{ navigateTo({name: 'painel-formularios'}) },1000) })
             .catch( response => { alerts.notification('error', "Erro", 'Falha ao remover Formulário'); })
       },
       ()=>{},

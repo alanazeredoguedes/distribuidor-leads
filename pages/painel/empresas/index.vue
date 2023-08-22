@@ -32,8 +32,7 @@
         <div class="card-body d-flex justify-content-center text-center flex-column p-8">
           <nuxt-link :to="{ name: 'painel-empresas-id', params: { id: empresa.id } }" class="text-gray-800 text-hover-primary d-flex flex-column">
             <div class="mb-5">
-              <img :src="baseUrl+empresa.logo.url.referencia" class="theme-light-show" alt="" style="max-width: 150px">
-              <img :src="baseUrl+empresa.logo.url.referencia" class="theme-dark-show" alt="" style="max-width: 150px">
+              <img v-if="empresa.logo" :src="baseUrl+empresa.logo.url.referencia" class="theme-light-show" alt="" style="max-width: 150px">
             </div>
             <div class="fs-8 fw-bold mb-2">{{ empresa.prefixo }}</div>
             <div class="fs-5 fw-bold mb-2">{{ empresa.nome }}</div>

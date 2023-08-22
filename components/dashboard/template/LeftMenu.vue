@@ -17,16 +17,14 @@
 
                 <router-link :class="getClassMenu([
                     'painel-formularios',
-                    'painel-formularios-criar',
-                    // 'formularios_edit',
-                    // 'formularios_edit_visaoGeral',
-                    // 'formularios_edit_dados',
-                    // 'formularios_edit_relatorios',
-                    // 'formularios_edit_integracoes',
-                    // 'formularios_edit_configuracoes',
-                    // 'formularios_edit_campos',
-                    // 'formularios_edit_notificacoes',
-                    // 'formularios_edit_logs',
+                    'painel-formularios-id-visao_geral',
+                    'painel-formularios-id-dados',
+                    'painel-formularios-id-relatorios',
+                    'painel-formularios-id-integracoes',
+                    'painel-formularios-id-campos',
+                    'painel-formularios-id-configuracoes',
+                    'painel-formularios-id-notificacoes',
+                    'painel-formularios-id-logs',
                 ])" :to="{name: 'painel-formularios'}">
                     <span class="menu-link py-3">
                         <span class="menu-title">Formulários</span>

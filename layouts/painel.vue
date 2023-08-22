@@ -15,7 +15,7 @@
           </div>
         </div>
 
-<!--        <Footer/>-->
+        <Footer/>
 
       </div>
     </div>
@@ -37,6 +37,7 @@
 import Header from "~/components/dashboard/template/Header.vue";
 import Toolbar from "~/components/dashboard/template/Toolbar.vue";
 import headerBg from '@/assets/media/patterns/header-bg.jpg';
+import Footer from "~/components/dashboard/template/Footer.vue";
 
 onMounted(()=>{
   document.querySelector('body').className = 'app-painel'

@@ -683,7 +683,7 @@
 <script setup>
 definePageMeta({
   layout: "painel",
-  title: 'Editar Formulário - Integrações',
+  title: 'Formulário - Integrações',
   middleware: 'auth',
   auth: true,
 })

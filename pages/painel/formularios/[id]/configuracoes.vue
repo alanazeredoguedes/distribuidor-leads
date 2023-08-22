@@ -65,7 +65,7 @@
 <script setup>
 definePageMeta({
   layout: "painel",
-  title: 'Editar Formulário - Configurações',
+  title: 'Formulário - Configurações',
   middleware: 'auth',
   auth: true,
 })

@@ -7,13 +7,13 @@
       </div>
       <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
         <li class="menu-item">
-          <a href="javascript:void(0)" target="_blank" class="menu-link px-2">Sobre</a>
+          <a href="javascript:void(0)" class="menu-link px-2">Sobre</a>
         </li>
         <li class="menu-item">
-          <a href="javascript:void(0)" target="_blank" class="menu-link px-2">Suporte</a>
+          <a href="javascript:void(0)" class="menu-link px-2">Suporte</a>
         </li>
         <li class="menu-item">
-          <a href="https://www.linkedin.com/in/alan-azeredo-guedes-786575191/" target="_blank" class="menu-link px-2">Desenvolvido por</a>
+          <a href="https://www.linkedin.com/in/alan-azeredo-guedes-786575191/" target="_blank" class="menu-link px-2">Dev&nbsp;<b>Alan Guedes</b></a>
         </li>
       </ul>
     </div>
