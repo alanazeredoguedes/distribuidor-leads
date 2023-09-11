@@ -17,7 +17,7 @@
 
         <NuxtLink :to="{name: 'painel'}" class="header-logo me-5 me-md-10 flex-grow-1 flex-lg-grow-0">
           <h3 style="color: whitesmoke">
-            Sistema de Integração
+            Distribuidor de Leads
           </h3>
 <!--          <img alt="Logo" src="@/assets/logo.png" class="logo-default h-125px" />-->
 <!--          <img alt="Logo" src="@/assets/logo.png" class="logo-sticky h-125px" />-->

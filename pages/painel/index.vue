@@ -117,7 +117,7 @@
                             <span class="position-absolute opacity-50 bottom-0 start-0 border-4 border-danger border-bottom w-100"></span>
                           </span>
                         </span>
-                    da Internit. <br>O Integrador!
+                    da Internit. <br>O Distribuidor de Leads!
                     <br>
                   </div>
                   <div class="mb-3">
@@ -178,8 +178,10 @@
                       </div>
                     </div>
                     <div class="d-flex flex-column flex-sm-row d-grid gap-2">
-<!--                      <nuxt-link :to="{name: 'formularios_create'}" class="btn btn-success flex-shrink-0 me-2" style="float: right">Criar Formulário</nuxt-link>-->
-<!--                      <nuxt-link :to="{ name: 'formularios_list'}" class="btn btn-primary flex-shrink-0" style="background: rgba(255, 255, 255, 0.2)">Gerenciar Formulários</nuxt-link>-->
+                      <button type="button" data-toggle="modal" data-target="#modalCriarFormulario" class="btn btn-success flex-shrink-0 me-2" style="float: right">
+                        Criar Formulário
+                      </button>
+                      <nuxt-link :to="{ name: 'painel-formularios'}" class="btn btn-primary flex-shrink-0" style="background: rgba(255, 255, 255, 0.2)">Gerenciar Formulários</nuxt-link>
                     </div>
                   </div>
                   <div class="col-5 pt-10">
@@ -197,12 +199,14 @@
       </div>
     </div>
 
-
+<ModalCriarFormulario/>
 
   </div>
 </template>
 
 <script setup lang="ts">
+
+import ModalCriarFormulario from "~/components/dashboard/modal/ModalCriarFormulario.vue";
 
 definePageMeta({
   layout: "painel",

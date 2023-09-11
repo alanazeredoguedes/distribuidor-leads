@@ -316,8 +316,6 @@ const novoFormulario = ()=>{
       })
       .catch( response => { alerts.notification('error', "Erro", 'Não foi possível criar formulário') })
 
-
-
 }
 
 

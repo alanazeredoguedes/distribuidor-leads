@@ -15,7 +15,7 @@
 										</span>
                 </button>
                 <nuxt-link :to="{name: 'index'}">
-                  <h2 style="color: white">Sistema Unico de Integração</h2>
+                  <h2 style="color: white">Distribuidor de Leads</h2>
                 </nuxt-link >
               </div>
               <div class="d-lg-block" id="kt_header_nav_wrapper">
@@ -50,12 +50,18 @@
         </div>
         <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
           <div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
-            <h1 class="text-white lh-base fw-bold fs-2x fs-lg-3x mb-15">Build An Outstanding Solutions
-              <br />with
+            <h1 class="text-white lh-base fw-bold fs-2x fs-lg-3x mb-15">
               <span style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-								<span id="kt_landing_hero_text">The Best Theme Ever</span>
-							</span></h1>
-            <a href="../../demo2/dist/index.html" class="btn btn-primary">Try Metronic</a>
+								<span id="kt_landing_hero_text">
+                  Distribuidor de Leads
+                </span>
+							</span>
+              <br>
+             O sistema que veio para ficar!
+            </h1>
+            <nuxt-link class="btn btn-primary" :to="{name: 'auth-login'}">
+              Acessar
+            </nuxt-link >
           </div>
           <div class="d-flex flex-center flex-wrap position-relative px-5">
             <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Fujifilm">
@@ -94,7 +100,7 @@
     <div class="mb-n10 mb-lg-n20 z-index-2">
       <div class="container">
         <div class="text-center mb-17">
-          <h3 class="fs-2hx text-dark mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">How it Works</h3>
+          <h3 class="fs-2hx text-dark mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">Como Funciona</h3>
           <div class="fs-5 text-muted fw-bold">Save thousands to millions of bucks by using single tool
             <br />for different amazing and great useful admin</div>
         </div>
