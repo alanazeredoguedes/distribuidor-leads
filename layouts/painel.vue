@@ -3,7 +3,10 @@
     <div class="page d-flex flex-row flex-column-fluid">
       <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
 
-        <Header/>
+
+        <div v-if="userStore.authenticated">
+          <Header/>
+        </div>
 
         <Toolbar/>
 
@@ -33,18 +36,18 @@
 
 <script setup lang="ts">
 
-
 import Header from "~/components/dashboard/template/Header.vue";
 import Toolbar from "~/components/dashboard/template/Toolbar.vue";
 import headerBg from '@/assets/media/patterns/header-bg.jpg';
 import Footer from "~/components/dashboard/template/Footer.vue";
+import { useUserStore } from "~/stores/userStore";
+const userStore = useUserStore();
+
 
 onMounted(()=>{
   document.querySelector('body').className = 'app-painel'
   document.querySelector('#__nuxt').className = 'd-flex flex-column flex-root'
   document.querySelector('body').style.backgroundImage = "url("+headerBg+")";
 })
-
-
 
 </script>

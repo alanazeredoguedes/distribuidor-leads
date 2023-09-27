@@ -15,7 +15,7 @@
             </span>
         </nuxt-link>
 
-                <router-link :class="getClassMenu([
+        <nuxt-link :class="getClassMenu([
                     'painel-formularios',
                     'painel-formularios-id-visao_geral',
                     'painel-formularios-id-dados',
@@ -25,11 +25,22 @@
                     'painel-formularios-id-configuracoes',
                     'painel-formularios-id-notificacoes',
                     'painel-formularios-id-logs',
-                ])" :to="{name: 'painel-formularios'}">
-                    <span class="menu-link py-3">
-                        <span class="menu-title">Formulários</span>
-                    </span>
-                </router-link>
+               ])" :to="{name: 'painel-formularios'}">
+          <span class="menu-link py-3">
+            <span class="menu-title">Formulários</span>
+          </span>
+        </nuxt-link>
+
+        <nuxt-link :class="getClassMenu([
+              'support',
+              'support-faq',
+              'support-tutorial',
+              'support-contato',
+            ])" :to="{name: 'support'}">
+          <span class="menu-link py-3">
+            <span class="menu-title">Suporte</span>
+          </span>
+        </nuxt-link>
 
       </div>
     </div>

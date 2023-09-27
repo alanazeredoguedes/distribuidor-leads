@@ -121,8 +121,9 @@
                     <br>
                   </div>
                   <div class="mb-3">
-                    <a href="#" class="btn btn-danger fw-semibold me-2" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Conhecer os Detalhes</a>
-                    <a href="#" class="btn btn-color-white bg-white bg-opacity-15 bg-hover-opacity-25 fw-semibold">Como Usar</a>
+                    <router-link to="support" class="btn btn-danger fw-semibold me-2">
+                      Conhecer os Detalhes
+                    </router-link>
                   </div>
                 </div>
                 <img src="@/assets/media/illustrations/sigma-1/17-dark.png" class="position-absolute me-3 bottom-0 end-0 h-200px" alt="">

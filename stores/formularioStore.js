@@ -8,7 +8,7 @@ export const useFormularioStore = defineStore('formulario', {
         selectStatus: [],
         formularioDados: [],
         formularioRelatorios: null,
-        formularioIntegracoes: null,
+        formularioIntegracoes: [],
         formularioCampos: null,
         formularioConfiguracoes: null,
         formularioNotificacoes: null,
