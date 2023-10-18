@@ -4,7 +4,7 @@
       <div class="card-body pt-9 pb-0">
         <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
           <div class="d-flex flex-center flex-shrink-0 bg-light rounded w-100px h-100px w-lg-150px h-lg-150px me-7 mb-4">
-            <img class="mw-50px mw-lg-75px" :src="baseUrl+formularioStore.formulario.empresa.logo.url.referencia" alt="image">
+            <img v-if="formularioStore.formulario.empresa.logo" class="mw-50px mw-lg-75px" :src="baseUrl+formularioStore.formulario.empresa.logo.url.referencia" alt="image">
           </div>
           <div class="flex-grow-1">
 

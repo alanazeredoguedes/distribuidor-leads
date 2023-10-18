@@ -5,6 +5,7 @@ export const useEmpresaStore = defineStore('empresa', {
     state: () => ({
         empresa: null,
         empresas: [],
+        sites: [],
     }),
     actions: {
         getEmpresas(){
@@ -19,7 +20,14 @@ export const useEmpresaStore = defineStore('empresa', {
             return axios.post(`/empresa`, data, {
                 headers: { "Content-Type": "multipart/form-data", }
             })
-        }
+        },
+        createSite(data){
+            return axios.post(`/empresa/site`, data)
+        },
+        getSites(id){
+            return axios.get(`/empresa/site/${id}`)
+                .then( response => this.sites = response.data )
+        },
     },
     getters: {
 

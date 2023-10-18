@@ -85,10 +85,14 @@
           <button class="nav-link text-active-primary pb-4 active" data-toggle="pill" data-target="#tab1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Informações Gerais</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link text-active-primary pb-4" data-toggle="pill" data-target="#tab2" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Avançado</button>
-
+          <button class="nav-link text-active-primary pb-4" data-toggle="pill" data-target="#tab2" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Sites</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-active-primary pb-4" data-toggle="pill" data-target="#tab3" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Avançado</button>
         </li>
       </ul>
+
+
 
       <div class="tab-content" v-if="empresaStore.empresa">
 
@@ -119,12 +123,12 @@
 
                 <div class="mb-10 fv-row fv-plugins-icon-container">
                   <label class="required form-label">Email</label>
-                  <input type="text" name="email" class="form-control mb-2" placeholder="Email" :value="empresaStore.empresa.email">
+                  <input type="text" name="email" class="form-control mb-2" placeholder="Email" v-model="empresaEdit.email">
                 </div>
 
                 <div class="mb-10 fv-row fv-plugins-icon-container">
                   <label class="required form-label">Telefone</label>
-                  <input type="text" name="telefone" class="form-control mb-2" placeholder="Email" :value="empresaStore.empresa.telefone">
+                  <input type="text" name="telefone" class="form-control mb-2" placeholder="Telefone" v-model="empresaEdit.telefone"  >
                 </div>
 
               </div>
@@ -138,7 +142,54 @@
 
               <div class="card-header">
                 <div class="card-title">
-                  <h2>Informações Avançadas</h2>
+                  <h2>Sites</h2>
+                </div>
+              </div>
+
+              <div class="card-body pt-0 row">
+
+                <div class="col-12" >
+                  <button style="float: right" type="button" data-toggle="modal" data-target="#modalCriarSite" class="btn btn-primary">
+                    <span class="indicator-label">Novo Site</span>
+                  </button>
+                </div>
+
+                <ModalNovoSite/>
+
+                <div class="col-12" style="margin-top: 20px;">
+
+                  <div class="form-group d-flex flex-wrap align-items-center gap-5" v-for="site in empresaStore.sites" style="margin-top: 10px;">
+                    <input type="text" class="form-control mw-300 w-600px" placeholder="Url" :value="site.url">
+                    <button type="button" @click="salvar" class="btn btn-sm btn-icon btn-light-primary">
+                      <i class="bi bi-save"></i>
+                    </button>
+                    <button type="button" @click="excluir" class="btn btn-sm btn-icon btn-light-danger">
+                      <i class="bi bi-x-lg"></i>
+                    </button>
+                  </div>
+
+<!--                  <ShowSite/>-->
+
+                </div>
+
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade show" id="tab2" role="tabpanel" aria-labelledby="pills-home-tab">
+          <div class="d-flex flex-column gap-7 gap-lg-10">
+            <div class="card card-flush py-4">
+
+              <div class="card-header">
+                <div class="card-title">
+                  <h2>Avançado</h2>
                 </div>
               </div>
 
@@ -172,6 +223,8 @@
 </template>
 
 <script setup>
+import ModalNovoSite from "~/components/painel/empresas/ModalNovoSite.vue";
+
 definePageMeta({
   layout: "painel",
   title: 'Editar Empresa',
@@ -184,6 +237,7 @@ const baseUrl = URI
 import {useEmpresaStore} from "~/stores/empresaStore";
 const empresaStore = useEmpresaStore();
 import {alerts} from "~/components/alerts";
+import ShowSite from "~/components/painel/empresas/ShowSite.vue";
 const route = useRoute();
 
 const empresaEdit = reactive({
@@ -193,6 +247,7 @@ const empresaEdit = reactive({
 
 onMounted(()=>{
   getEmpresa()
+  empresaStore.getSites(route.params.id);
 })
 
 
@@ -211,6 +266,8 @@ const getEmpresa = ()=>{
   empresaStore.getEmpresa(route.params.id)
       .then( response => {
         alerts.notification('success', "Sucesso", 'Sucesso ao carregar Empresa')
+        empresaEdit.email = empresaStore.empresa.email
+        empresaEdit.telefone = empresaStore.empresa.telefone
       })
       .catch( response => {
         alerts.notification('error', "Erro", 'Falha ao carregar Empresa')
@@ -225,6 +282,8 @@ const editEmpresa = ()=>{
     const form = document.getElementById("formEditarEmpresa");
     const formData = new FormData(form);
     formData.append("empresa", route.params.id);
+    formData.append("email", empresaEdit.email);
+    formData.append("telefone", empresaEdit.telefone);
 
     alerts.notification('info', "Aguarde!", 'Atualizando Informações!')
 

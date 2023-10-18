@@ -170,7 +170,7 @@
       <nuxt-link :to="{ name: 'painel-formularios-id-visao_geral', params: { id: formulario.id } }" class="card border-hover-primary">
         <div class="card-header border-0 pt-9">
           <div class="card-title m-0">
-            <div class="w-120px bg-light">
+            <div class="w-120px bg-light" v-if="formulario.empresa.logo">
               <img :src="baseUrl+formulario.empresa.logo.url.referencia" alt="image" class="p-3" style="max-width: 120px; max-height: 50px;">
             </div>
           </div>
