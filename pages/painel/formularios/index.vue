@@ -176,7 +176,7 @@
           </div>
           <div class="card-toolbar">
 
-            <span v-if="formulario.status" class="badge badge-light-primary fw-bold me-auto px-4 py-3">{{ formulario.status.status }}</span>
+            <span v-if="formulario.status" v-bind:class="getStyleStatus(formulario.status.id)" class="badge fw-bold me-auto px-4 py-3">{{ formulario.status.status }}</span>
           </div>
         </div>
         <div class="card-body p-9">
@@ -271,6 +271,16 @@ const formulariosFiltrados = computed(()=>{
 
   return [...new Set(formularios)]
 })
+
+const getStyleStatus = (statusId)=>{
+      if(statusId === 1){
+        return 'badge-light-warning'
+      }else if(statusId === 2){
+        return 'badge-light-success'
+      }else if(statusId=== 3){
+        return 'badge-light-danger'
+      }
+}
 
 
 

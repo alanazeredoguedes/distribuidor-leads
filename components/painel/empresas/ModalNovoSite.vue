@@ -18,10 +18,10 @@
             <input type="text" class="form-control form-control-lg form-control-solid" name="name" placeholder="Entre com o nome" v-model="data.url" required>
           </div>
 
-          <div class="fv-row mb-8 fv-plugins-icon-container">
+<!--          <div class="fv-row mb-8 fv-plugins-icon-container">
             <label class="fs-6 fw-semibold mb-2">Descrição do Site</label>
             <textarea class="form-control form-control-solid" rows="5" placeholder="Entre com a descrição" v-model="data.descricao" required></textarea>
-          </div>
+          </div>-->
 
             <div style="float: right; margin-top: 20px;" >
               <button type="submit"  class="btn btn-primary">
@@ -87,12 +87,8 @@ const novoSite = ()=>{
       .then( response => {
         alerts.notification('success', "Sucesso", 'Site criado com sucesso!')
         fecharModal()
-        /*setTimeout(()=>{
-          //navigateTo(`/painel/formularios/${response.data}/campos`)
-          navigateTo({name: 'painel-formularios-id-campos', params: {id: response.data}})
-        },1000)*/
         empresaStore.getSites(data.empresa)
-
+        data.url = ''
       })
       .catch( response => { alerts.notification('error', "Erro", 'Não foi possível criar Site') })
 

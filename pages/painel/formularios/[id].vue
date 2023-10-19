@@ -13,7 +13,7 @@
               <div class="d-flex flex-column">
                 <div class="d-flex align-items-center mb-1">
                   <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bold me-3">{{ formularioStore.formulario.nome }} </a>
-                  <span  v-if="formularioStore.formulario.status" v-bind:class="getStyleStatus()" class="badge me-auto">{{ formularioStore.formulario.status.status }}</span>
+                  <span  v-if="formularioStore.formulario.status" v-bind:class="getStyleStatus(formularioStore.formulario.status.id)" class="badge me-auto">{{ formularioStore.formulario.status.status }}</span>
                 </div>
                 <b>{{ formularioStore.formulario.id }}</b>
               </div>
@@ -149,17 +149,14 @@ const deletarFormulario = ()=>{
   )
 }
 
-const getStyleStatus = ()=>{
-  if(formularioStore.formulario)
-    if(formularioStore.formulario.status)
-      if(formularioStore.formulario.status.id === 1){
-        return 'badge-light-warning'
-      }else if(formularioStore.formulario.status.id === 2){
-        return 'badge-light-success'
-      }else if(formularioStore.formulario.status.id === 3){
-        return 'badge-light-danger'
-      }
-
+const getStyleStatus = (statusId)=>{
+  if(statusId === 1){
+    return 'badge-light-warning'
+  }else if(statusId === 2){
+    return 'badge-light-success'
+  }else if(statusId=== 3){
+    return 'badge-light-danger'
+  }
 }
 
 

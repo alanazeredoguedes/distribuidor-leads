@@ -28,6 +28,13 @@ export const useEmpresaStore = defineStore('empresa', {
             return axios.get(`/empresa/site/${id}`)
                 .then( response => this.sites = response.data )
         },
+        updateSite(id, data){
+            return axios.put(`/empresa/site/${id}`, data)
+        },
+        deleteSite(id){
+            return axios.delete(`/empresa/site/${id}`)
+        },
+
     },
     getters: {
 

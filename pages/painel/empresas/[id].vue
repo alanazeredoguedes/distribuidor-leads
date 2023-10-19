@@ -148,32 +148,22 @@
 
               <div class="card-body pt-0 row">
 
-                <div class="col-12" >
+
+
+                <ModalNovoSite/>
+
+                <div class="col-10" >
+
+                  <ShowSite :site="site" v-for="site in empresaStore.sites" />
+
+                </div>
+
+                <div class="col-2" >
                   <button style="float: right" type="button" data-toggle="modal" data-target="#modalCriarSite" class="btn btn-primary">
                     <span class="indicator-label">Novo Site</span>
                   </button>
                 </div>
 
-                <ModalNovoSite/>
-
-                <div class="col-12" style="margin-top: 20px;">
-
-                  <div class="form-group d-flex flex-wrap align-items-center gap-5" v-for="site in empresaStore.sites" style="margin-top: 10px;">
-                    <input type="text" class="form-control mw-300 w-600px" placeholder="Url" :value="site.url">
-                    <button type="button" @click="salvar" class="btn btn-sm btn-icon btn-light-primary">
-                      <i class="bi bi-save"></i>
-                    </button>
-                    <button type="button" @click="excluir" class="btn btn-sm btn-icon btn-light-danger">
-                      <i class="bi bi-x-lg"></i>
-                    </button>
-                  </div>
-
-<!--                  <ShowSite/>-->
-
-                </div>
-
-
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
               </div>
@@ -183,7 +173,7 @@
           </div>
         </div>
 
-        <div class="tab-pane fade show" id="tab2" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="tab-pane fade show" id="tab3" role="tabpanel" aria-labelledby="pills-home-tab">
           <div class="d-flex flex-column gap-7 gap-lg-10">
             <div class="card card-flush py-4">
 
@@ -195,7 +185,6 @@
 
               <div class="card-body pt-0">
 
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
               </div>
