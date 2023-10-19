@@ -228,7 +228,6 @@ const adicionarCampo = ()=>{
    let length = 0;
    campos.forEach((campo, index)=>{ length = index })
     //showDivExtraCampo = ref(length)
-
 }
 
 const removerCampo = (index)=>{
@@ -262,19 +261,18 @@ const filterCampo = (campo)=>{
 
 onMounted(()=>{
   alerts.notification('info', "Aguarde!", 'Consultando Informações!')
+  getFormCampos()
+})
+
+const getFormCampos = ()=>{
   formularioStore.getFormularioCampos(route.params.id)
       .then((response)=>{
         alerts.notification('success', "Sucesso", 'Sucesso ao carregar Campos do Formulário!')
-        let camposAtual = response[0].campos
-
-        camposAtual.forEach((campo)=>{
-          campos.push(campo)
-        })
-        //campos.push(response[0].campos[0])
+        while(campos.length > 0) { campos.pop(); }
+        response.forEach((campo)=>{ campos.push(campo) })
       })
       .catch(()=>{ alerts.notification('error', "Erro", 'Falha ao carregar Campos do Formulário!'); })
-})
-
+}
 
 const salvar = ()=>{
   let id = route.params.id
@@ -283,7 +281,8 @@ const salvar = ()=>{
   }
   formularioStore.updateFormularioCampos({id: id, data: data})
       .then(()=>{
-        formularioStore.getFormulario(id)
+        //formularioStore.getFormulario(id)
+        getFormCampos()
         alerts.notification('success', "Sucesso", 'Sucesso ao atualizar Campos do Formulário!')
       }).catch(()=>{ alerts.notification('error', "Erro", 'Falha ao atualizar Campos do Formulário!'); })
 };

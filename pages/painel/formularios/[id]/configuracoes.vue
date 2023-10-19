@@ -84,7 +84,6 @@ onMounted(()=>{
   formularioStore.getFormularioConfiguracoes(route.params.id)
       .then( response => { alerts.notification('success', "Sucesso", 'Sucesso ao carregar Configurações do Formulário')})
       .catch( response => { alerts.notification('error', "Erro", 'Falha ao carregar Configurações do Formulário'); })
-
   formularioStore.getStatus()
 })
 

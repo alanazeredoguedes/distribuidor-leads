@@ -1,16 +1,16 @@
 <template>
-  <div class="d-flex flex-column mb-5 fv-row">
-    <label class="fs-5 fw-semibold mb-2">Subject</label>
-    <input class="form-control form-control-solid" placeholder="" name="subject">
+  <div class="input-group mb-5">
+    <span class="input-group-text" id="basic-addon3" style="min-width: 200px;">{{ inputOptions.name }}</span>
+    <input type="text" class="form-control"/>
   </div>
 </template>
 
-<script lang="ts">
+<script setup>
 // defineProps({
 //   campo: Object,
 // })
 const props = defineProps({
-  campo: Object
+  inputOptions: Object
 })
 
 </script>

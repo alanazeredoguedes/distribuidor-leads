@@ -16,49 +16,58 @@ export const useFormularioStore = defineStore('formulario', {
     }),
     actions: {
         createFormulario(data){
-            return axios.post(`/formularios`, data)
+            return axios.post(`/forms`, data)
         },
         deleteFormulario(id){
-            return axios.delete( `/formularios/`+id.replace('#','%23'),{
+            return axios.delete( `/forms/`+id.replace('#','%23'),{
             }).then( response => this.formulario = null )
         },
         getFormularios(){
-            return axios.get(`/formularios`)
+            return axios.get(`/forms`)
                 .then( response => this.formularios = response.data )
         },
         getFormulario( id){
-            return axios.get( `/formularios/`+id.replace('#','%23'),{
+            return axios.get( `/forms/`+id.replace('#','%23'),{
             }).then( response => this.formulario = response.data )
         },
         getStatus(){
-            return axios.get(`/formularios/status`)
+            return axios.get(`/forms/status`)
                 .then( response => this.selectStatus = response.data )
         },
         getFormularioConfiguracoes( id){
-            return axios.get( `/formularios/${id}/configuracoes`.replace('#','%23'),{
+            return axios.get( `/forms/${id}/config`.replace('#','%23'),{
             }).then( response => this.formularioConfiguracoes = response.data )
         },
         updateFormularioConfiguracoes(data){
             //console.log(data)
-            return axios.put( `/formularios/${data.id}/configuracoes`.replace('#','%23'), data.data)
+            return axios.put( `/forms/${data.id}/config`.replace('#','%23'), data.data)
                 .then( response => this.formularioConfiguracoes = response.data )
         },
         getFormularioCampos(id){
-            return axios.get( `/formularios/${id}/campos`.replace('#','%23'),{
+            return axios.get( `/forms/${id}/fields`.replace('#','%23'),{
             }).then( response => this.formularioCampos = response.data )
         },
         updateFormularioCampos(data){
             //console.log(data)
-            return axios.put( `/formularios/${data.id}/campos`.replace('#','%23'),data.data)
+            return axios.put( `/forms/${data.id}/fields`.replace('#','%23'),data.data)
                 .then( response => this.formularioCampos = response.data )
         },
         getFormularioDados(id){
-            return axios.get( `/formularios/${id}/dados`.replace('#','%23'),{
+            return axios.get( `/forms/${id}/dados`.replace('#','%23'),{
             }).then( response => this.formularioDados = response.data )
         },
         updateFormularioDados(data){
-            return axios.put( `/formularios/${data.id}/campos`.replace('#','%23'),data.data)
+            return axios.put( `/forms/${data.id}/campos`.replace('#','%23'),data.data)
                 //.then( response => this.formularioCampos = response.data )
+        },
+        getFormularioIntegracoes(id){
+            return axios.get( `/forms/${id}/integration`.replace('#','%23'),{
+            }).then( response => this.formularioIntegracoes = response.data )
+        },
+        updateFormularioIntegracoes(data){
+            //console.log(data)
+            return axios.put( `/forms/${data.id}/integration`.replace('#','%23'),data.data)
+                .then( response => this.formularioIntegracoes = response.data )
         },
     },
     getters: {

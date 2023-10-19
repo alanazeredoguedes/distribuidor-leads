@@ -95,27 +95,28 @@
 
 </template>
 
-<script setup lang="ts">
+<script setup lang="js">
 import integrations from "~/components/ts/integracoes";
 import {useFormularioStore} from "~/stores/formularioStore";
+import $ from "jquery";
 const formularioStore = useFormularioStore();
 
 
-const addIntegration = (id: string) => {
+const fecharModal = ()=>{
+  $('#modalAddIntegracao').modal('hide');
+}
 
-  alert(id)
+const addIntegration = (id) => {
 
-  const dataIntegration = {
-    id: 'novo_crm',
-    active: false,
-    async: false,
-
-
+  let dataIntegration = {
+      id: id,
+      active: true,
+      async: false,
+      fields: []
   }
 
- // formularioStore.formularioIntegracoes.push('')
-
-
+ formularioStore.formularioIntegracoes.push(dataIntegration);
+  fecharModal()
 }
 
 </script>
