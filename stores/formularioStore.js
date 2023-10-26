@@ -53,11 +53,11 @@ export const useFormularioStore = defineStore('formulario', {
                 .then( response => this.formularioCampos = response.data )
         },
         getFormularioDados(id){
-            return axios.get( `/forms/${id}/dados`.replace('#','%23'),{
+            return axios.get( `/forms/${id}/data`.replace('#','%23'),{
             }).then( response => this.formularioDados = response.data )
         },
         updateFormularioDados(data){
-            return axios.put( `/forms/${data.id}/campos`.replace('#','%23'),data.data)
+            return axios.put( `/forms/${data.id}/data`.replace('#','%23'),data.data)
                 //.then( response => this.formularioCampos = response.data )
         },
         getFormularioIntegracoes(id){

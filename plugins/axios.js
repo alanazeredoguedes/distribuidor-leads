@@ -24,6 +24,10 @@ axios.interceptors.response.use(function (response) {
 }, function (error) {
     const token = sessionStorage.get(TOKEN_NAME)
 
+    //console.log(error.code)
+    if(error.code === "ERR_NETWORK")
+        sessionStorage.remove(TOKEN_NAME)
+
     if (error.response.status === 401 && token) {
 
         sessionStorage.remove(TOKEN_NAME)
