@@ -17,6 +17,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
     "@popperjs/core": "^2.11.8",
+    "@yaireo/tagify": "^4.17.9",
     "axios": "^1.4.0",
     "bootstrap": "^4.0.0",
     "bootstrap-icons": "^1.10.5",

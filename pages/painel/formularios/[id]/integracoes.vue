@@ -8,6 +8,9 @@
     <div class="d-flex flex-wrap my-1">
       <ul class="nav nav-pills me-5" role="tablist">
         <li class="nav-item m-0" role="presentation">
+          <button class="btn btn btn-primary" @click="saveIntegrations" style="margin-right: 10px">
+            Salvar Integrações
+          </button>
           <button class="btn btn btn-primary" data-toggle="modal" data-target="#modalAddIntegracao">
             Adicionar Integração
           </button>
@@ -19,7 +22,7 @@
 
 
 
-<div class="row">
+<div class="row" v-if="formularioStore.formularioIntegracoes.length">
 
   <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid col-3" >
     <div class="card d-flex justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-300px w-xxl-400px me-9">
@@ -28,7 +31,7 @@
 
           <div :class="(activeIntegration === index)? 'current': ''" class="stepper-item" v-for="(integration, index) in formularioStore.formularioIntegracoes">
 
-            <a href="javascript:void(0)" @click="activeIntegration = index">
+            <a href="javascript:void(0)" @click="(activeIntegration === index)? (activeIntegration = -1): (activeIntegration = index)">
             <div class="stepper-wrapper">
               <div class="stepper-icon w-40px h-40px">
                 <i class="stepper-check fas fa-check"></i>
@@ -57,8 +60,8 @@
 
   <OptionIntegration v-for="(integration, index) in formularioStore.formularioIntegracoes" :id="index" :active-integration="activeIntegration" :integration="integration"  />
 
-</div>
 
+</div>
 
 
 </template>
@@ -68,6 +71,7 @@ import { useFormularioStore } from "~/stores/formularioStore";
 const formularioStore = useFormularioStore();
 import integrations from "~/components/ts/integracoes";
 import OptionIntegration from "~/components/integracao/OptionIntegration.vue";
+import {alerts} from "~/components/alerts";
 
 const activeIntegration = ref(-1);
 
@@ -89,9 +93,19 @@ definePageMeta({
 })
 
 
+onMounted(()=>{
+  formularioStore.getFormularioIntegracoes(formularioStore.formulario.id).then(()=>{
+    alerts.notification('success', "Sucesso", 'Sucesso ao carregar Integrações!')
+  })
+})
 
-const formIntegrations = [
+const saveIntegrations = ()=>{
 
-];
+  alerts.modalConfirm('Salvar Integrações', 'As integrações configuradas abaixo estão disponíveis durante o fluxo de integração!', ()=>{
+    formularioStore.updateFormularioIntegracoes(formularioStore.formulario.id).then(()=>{
+      alerts.notification('success', "Sucesso", 'Sucesso ao salvar Integrações!')
+    })
+  })
+}
 
 </script>

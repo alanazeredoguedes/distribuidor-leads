@@ -64,10 +64,9 @@ export const useFormularioStore = defineStore('formulario', {
             return axios.get( `/forms/${id}/integration`.replace('#','%23'),{
             }).then( response => this.formularioIntegracoes = response.data )
         },
-        updateFormularioIntegracoes(data){
-            //console.log(data)
-            return axios.put( `/forms/${data.id}/integration`.replace('#','%23'),data.data)
-                .then( response => this.formularioIntegracoes = response.data )
+        updateFormularioIntegracoes(id){
+            return axios.put( `/forms/${id}/integration`.replace('#','%23'),this.formularioIntegracoes)
+               // .then( response => this.formularioIntegracoes = response.data )
         },
     },
     getters: {

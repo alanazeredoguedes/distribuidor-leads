@@ -101,18 +101,27 @@ import {useFormularioStore} from "~/stores/formularioStore";
 import $ from "jquery";
 const formularioStore = useFormularioStore();
 
-
 const fecharModal = ()=>{
   $('#modalAddIntegracao').modal('hide');
 }
 
 const addIntegration = (id) => {
 
+  const integrationConfig = integrations[id]
+
+  let integrationFields = [];
+  integrationConfig.fields.forEach((field)=>{
+    integrationFields.push(
+        {name: field.name,
+          value: (field.defaultValue) ? field.defaultValue : '',
+        })
+  })
+
   let dataIntegration = {
       id: id,
       active: true,
       async: false,
-      fields: []
+      fields: integrationFields
   }
 
  formularioStore.formularioIntegracoes.push(dataIntegration);
