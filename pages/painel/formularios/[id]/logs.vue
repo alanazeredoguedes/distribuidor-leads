@@ -179,10 +179,31 @@
   </div>
 </template>
 <script setup>
+import {alerts} from "~/components/alerts";
+import {useFormularioStore} from "~/stores/formularioStore";
+const formularioStore = useFormularioStore();
+const route = useRoute();
+
 definePageMeta({
   layout: "painel",
   title: 'Formulário - Logs',
   middleware: 'auth',
   auth: true,
 })
+
+
+onMounted(()=>{
+  alerts.notification('info', "Aguarde!", 'Consultando Informações!')
+  formularioStore.getFormularioLogs(route.params.id)
+      .then( response => {
+        alerts.notification('success', "Sucesso", 'Sucesso ao carregar informações de Log!')
+        console.log(formularioStore.formularioLogs)
+      })
+      .catch( response => { alerts.notification('error', "Erro", 'Falha ao carregar informações de Log!'); })
+
+})
+
+
+
+
 </script>

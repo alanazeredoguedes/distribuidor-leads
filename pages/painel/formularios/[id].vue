@@ -74,7 +74,8 @@
             <router-link :class="getClassMenu('painel-formularios-id-dados')" :to="{name: 'painel-formularios-id-dados'}">Dados</router-link>
           </li>
           <li class="nav-item">
-            <router-link :class="getClassMenu('painel-formularios-id-relatorios')" :to="{name: 'painel-formularios-id-relatorios'}">Relatórios</router-link>
+            <a href="javascript:void(0)" :class="getClassMenu('painel-formularios-id-notificacoes')" @click="notImplemented">Relatórios</a>
+<!--            <router-link :class="getClassMenu('painel-formularios-id-relatorios')" :to="{name: 'painel-formularios-id-relatorios'}">Relatórios</router-link>-->
           </li>
           <li class="nav-item">
             <router-link :class="getClassMenu('painel-formularios-id-integracoes')" :to="{name: 'painel-formularios-id-integracoes'}">Integrações</router-link>
@@ -86,7 +87,8 @@
             <router-link :class="getClassMenu('painel-formularios-id-configuracoes')" :to="{name: 'painel-formularios-id-configuracoes'}">Configurações</router-link>
           </li>
           <li class="nav-item">
-            <router-link :class="getClassMenu('painel-formularios-id-notificacoes')" :to="{name: 'painel-formularios-id-notificacoes'}">Notificações</router-link>
+            <a href="javascript:void(0)" :class="getClassMenu('painel-formularios-id-notificacoes')" @click="notImplemented">Notificações</a>
+<!--            <router-link :class="getClassMenu('painel-formularios-id-notificacoes')" :to="{name: 'painel-formularios-id-notificacoes'}" @click="notImplemented">Notificações</router-link>-->
           </li>
           <li class="nav-item">
             <router-link :class="getClassMenu('painel-formularios-id-logs')" :to="{name: 'painel-formularios-id-logs'}">Logs</router-link>
@@ -121,6 +123,9 @@ onMounted(()=>{
   getFormulario()
 })
 
+const notImplemented = ()=>{
+  alerts.modalAlert('info', "Em breve!", "Funcionalidade está sendo implementada!", 5000)
+}
 
 const getClassMenu = (router)=>{
   let menuClass = "nav-link text-active-primary py-5 me-6"

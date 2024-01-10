@@ -310,7 +310,7 @@ const novoFormulario = ()=>{
         fecharModal()
         setTimeout(()=>{
           //navigateTo(`/painel/formularios/${response.data}/campos`)
-          navigateTo({name: 'painel-formularios-id-campos', params: {id: response.data}})
+          navigateTo({name: 'painel-formularios-id-configuracoes', params: { id: response.data.id.replace('#','%23') }})
         },1000)
 
       })

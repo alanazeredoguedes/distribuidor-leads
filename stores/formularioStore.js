@@ -12,7 +12,7 @@ export const useFormularioStore = defineStore('formulario', {
         formularioCampos: null,
         formularioConfiguracoes: null,
         formularioNotificacoes: null,
-        formularioLogs: null,
+        formularioLogs: [],
     }),
     actions: {
         createFormulario(data){
@@ -67,6 +67,10 @@ export const useFormularioStore = defineStore('formulario', {
         updateFormularioIntegracoes(id){
             return axios.put( `/forms/${id}/integration`.replace('#','%23'),this.formularioIntegracoes)
                // .then( response => this.formularioIntegracoes = response.data )
+        },
+        getFormularioLogs(id){
+            return axios.get( `/forms/${id}/logs`.replace('#','%23'),{
+            }).then( response => this.formularioLogs = response.data )
         },
     },
     getters: {

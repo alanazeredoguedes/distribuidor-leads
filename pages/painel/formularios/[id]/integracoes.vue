@@ -45,7 +45,7 @@
               </div>
             </div>
             </a>
-            <div class="stepper-line h-40px"></div>
+            <div class="stepper-line h-40px" ></div>
           </div>
 
           <div class="stepper-item" style="display: none;">

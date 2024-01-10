@@ -45,6 +45,33 @@
           </div>
         </div>
 
+
+        <div class="row mb-8">
+          <div class="col-xl-3">
+            <div class="fs-6 fw-semibold mt-2 mb-3">Site</div>
+          </div>
+          <div class="col-xl-9 fv-row fv-plugins-icon-container">
+            <div class="w-300">
+              <VueMultiselectEsm
+                  :allow-empty="true"
+                  deselect-label="Remover"
+                  select-label="Selecionar"
+                  selected-label="Selecionado"
+                  placeholder="Escolha o Site"
+                  v-model="formularioStore.formularioConfiguracoes.site"
+                  :options="sitesOptions"
+                  close-on-select="true"
+                  allow-empty="true"
+                  searchable="false"
+              />
+            </div>
+          </div>
+        </div>
+
+
+
+
+
         <div class="row mb-8">
           <div class="col-xl-3">
             <div class="fs-6 fw-semibold mt-2 mb-3" >Descrição</div>
@@ -63,6 +90,8 @@
   </div>
 </template>
 <script setup>
+import VueMultiselectEsm from "vue-multiselect";
+
 definePageMeta({
   layout: "painel",
   title: 'Formulário - Configurações',
@@ -76,15 +105,34 @@ import {useFormularioStore} from "~/stores/formularioStore";
 const formularioStore = useFormularioStore();
 import {alerts} from "~/components/alerts";
 const route = useRoute();
+import {useEmpresaStore} from "~/stores/empresaStore";
+const empresaStore = useEmpresaStore();
+
+
+const sitesOptions = computed(() => {
+  let sites = []
+  empresaStore.sites.forEach((site)=>{
+    sites.push(`${site.id} - ${site.url}`)
+  })
+  return sites
+})
 
 
 
 onMounted(()=>{
   alerts.notification('info', "Aguarde!", 'Consultando Informações!')
   formularioStore.getFormularioConfiguracoes(route.params.id)
-      .then( response => { alerts.notification('success', "Sucesso", 'Sucesso ao carregar Configurações do Formulário')})
+      .then( response => {
+        alerts.notification('success', "Sucesso", 'Sucesso ao carregar Configurações do Formulário')
+        empresaStore.getSites(formularioStore.formularioConfiguracoes.empresa).then(()=>{
+          console.log()
+        })
+
+      })
       .catch( response => { alerts.notification('error', "Erro", 'Falha ao carregar Configurações do Formulário'); })
   formularioStore.getStatus()
+
+
 })
 
 const salvar = ()=>{
