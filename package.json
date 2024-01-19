@@ -23,6 +23,7 @@
     "bootstrap-icons": "^1.10.5",
     "jquery": "^3.2.1",
     "pinia": "^2.1.6",
+    "tiptap-vuetify": "^2.24.0",
     "vue-multiselect": "^3.0.0-beta.2"
   }
 }

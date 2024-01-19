@@ -62,15 +62,11 @@
                   :options="sitesOptions"
                   close-on-select="true"
                   allow-empty="true"
-                  searchable="false"
+                  searchable="true"
               />
             </div>
           </div>
         </div>
-
-
-
-
 
         <div class="row mb-8">
           <div class="col-xl-3">
@@ -108,6 +104,9 @@ const route = useRoute();
 import {useEmpresaStore} from "~/stores/empresaStore";
 const empresaStore = useEmpresaStore();
 
+/*const form = reactive({
+  site: '',
+})*/
 
 const sitesOptions = computed(() => {
   let sites = []
@@ -118,26 +117,22 @@ const sitesOptions = computed(() => {
 })
 
 
-
 onMounted(()=>{
   alerts.notification('info', "Aguarde!", 'Consultando Informações!')
   formularioStore.getFormularioConfiguracoes(route.params.id)
       .then( response => {
         alerts.notification('success', "Sucesso", 'Sucesso ao carregar Configurações do Formulário')
         empresaStore.getSites(formularioStore.formularioConfiguracoes.empresa).then(()=>{
-          console.log()
         })
-
       })
       .catch( response => { alerts.notification('error', "Erro", 'Falha ao carregar Configurações do Formulário'); })
   formularioStore.getStatus()
-
-
 })
 
 const salvar = ()=>{
   let id = route.params.id
   let formulario = formularioStore.formularioConfiguracoes
+  //console.log(formulario)
   formularioStore.updateFormularioConfiguracoes({id: id, data: formulario})
       .then(()=>{
         formularioStore.getFormulario(id)

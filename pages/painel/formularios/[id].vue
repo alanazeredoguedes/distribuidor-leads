@@ -19,6 +19,9 @@
               </div>
 
               <div class="d-flex mb-4">
+                <a :href="pdfIntegracao"  class="btn btn-sm btn-bg-light btn-active-color-primary me-3" target="_blank">
+                  PDF Integração
+                </a>
                 <router-link :to="{name: 'painel-formularios'}" class="btn btn-sm btn-bg-light btn-active-color-primary me-3">Voltar</router-link>
                 <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-danger" @click="deletarFormulario">
                   <i class="bi bi-trash fs-3"></i>
@@ -91,7 +94,8 @@
 <!--            <router-link :class="getClassMenu('painel-formularios-id-notificacoes')" :to="{name: 'painel-formularios-id-notificacoes'}" @click="notImplemented">Notificações</router-link>-->
           </li>
           <li class="nav-item">
-            <router-link :class="getClassMenu('painel-formularios-id-logs')" :to="{name: 'painel-formularios-id-logs'}">Logs</router-link>
+            <a href="javascript:void(0)" :class="getClassMenu('painel-formularios-id-logs')" @click="notImplemented">Logs</a>
+<!--            <router-link :class="getClassMenu('painel-formularios-id-logs')" :to="{name: 'painel-formularios-id-logs'}">Logs</router-link>-->
           </li>
         </ul>
 
@@ -116,10 +120,14 @@ const formularioStore = useFormularioStore();
 import {alerts} from "~/components/alerts";
 const route = useRoute();
 
+const pdfIntegracao = computed(()=>{
+ return baseUrl + "/api/integration/fields/pdf/"+ route.params.id.replace('#','%23')
+})
 
 //navigateTo({name: 'painel-formularios-id-visao_geral', params: {id: route.params.id}})
 
 onMounted(()=>{
+  formularioStore.resetFormularioDados()
   getFormulario()
 })
 

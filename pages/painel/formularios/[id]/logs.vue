@@ -191,13 +191,17 @@ definePageMeta({
   auth: true,
 })
 
+const notImplemented = ()=>{
+  alerts.modalAlert('info', "Em breve!", "Funcionalidade está sendo implementada!", 5000)
+}
+
 
 onMounted(()=>{
   alerts.notification('info', "Aguarde!", 'Consultando Informações!')
   formularioStore.getFormularioLogs(route.params.id)
       .then( response => {
         alerts.notification('success', "Sucesso", 'Sucesso ao carregar informações de Log!')
-        console.log(formularioStore.formularioLogs)
+        //console.log(formularioStore.formularioLogs)
       })
       .catch( response => { alerts.notification('error', "Erro", 'Falha ao carregar informações de Log!'); })
 

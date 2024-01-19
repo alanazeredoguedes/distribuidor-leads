@@ -11,7 +11,10 @@
           <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
         </svg>
       </span>
-        <input type="text" class="form-control bg-transparent fs-2 py-6 ps-17 placeholder-white opacity-50" style="border: 1px solid rgba(255, 255, 255, 0.24);" name="search" value="" placeholder="Pesquisar por" />
+        <input type="text"
+               class="form-control bg-transparent fs-2 py-6 ps-17 placeholder-white opacity-50"
+               style="border: 1px solid rgba(255, 255, 255, 0.24);"
+               name="search" value="" placeholder="Pesquisar por" />
       </div>
     </div>
 
@@ -45,7 +48,9 @@
             </li>
 
             <li class="nav-item my-3">
-                <router-link :to="{name: 'support-contato'}" :class="getClassMenu(['support-contato'])">
+<!--              <a href="javascript:void(0)" :class="getClassMenu(['support-contato'])" @click="notImplemented">Contato</a>-->
+
+              <router-link :to="{name: 'support-contato'}" :class="getClassMenu(['support-contato'])">
                   Contato
                 </router-link>
             </li>
@@ -63,12 +68,21 @@
 </template>
 <script setup lang="ts">
 
+import {alerts} from "~/components/alerts";
+
 const route = useRoute()
 
-let getClassMenu = (names)=>{
+
+
+
+const notImplemented = ()=>{
+  alerts.modalAlert('info', "Em breve!", "Funcionalidade está sendo implementada!", 5000)
+}
+
+let getClassMenu = (names: string)=>{
   let menuClass = "btn btn-active-light-primary fw-bolder nav-link btn-color-gray-700 px-3 px-lg-8 mx-1 text-uppercase"
 
-  names.forEach((name)=>{
+  names.forEach((name: string)=>{
     if(name === route.name){
       menuClass = 'active ' + menuClass
     }

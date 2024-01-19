@@ -6,7 +6,18 @@ export const useFormularioStore = defineStore('formulario', {
         formularios: [],
         formulario: null,
         selectStatus: [],
-        formularioDados: [],
+        formularioDados: {
+            paginacao: {
+                qtd: 10,
+                atual: 1,
+            },
+            campos: [],
+            activeItem: 1,
+            list: [],
+            edit: null,
+            log: null,
+        },
+
         formularioRelatorios: null,
         formularioIntegracoes: [],
         formularioCampos: null,
@@ -15,6 +26,19 @@ export const useFormularioStore = defineStore('formulario', {
         formularioLogs: [],
     }),
     actions: {
+        resetFormularioDados(){
+            this.formularioDados = {
+                paginacao: {
+                    qtd: 10,
+                    atual: 1,
+                },
+                campos: [],
+                activeItem: 1,
+                list: [],
+                edit: null,
+                log: null,
+            }
+        },
         createFormulario(data){
             return axios.post(`/forms`, data)
         },
@@ -54,7 +78,7 @@ export const useFormularioStore = defineStore('formulario', {
         },
         getFormularioDados(id){
             return axios.get( `/forms/${id}/data`.replace('#','%23'),{
-            }).then( response => this.formularioDados = response.data )
+            }).then( response => this.formularioDados.list = response.data )
         },
         updateFormularioDados(data){
             return axios.put( `/forms/${data.id}/data`.replace('#','%23'),data.data)

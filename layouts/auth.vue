@@ -25,7 +25,7 @@
         <div class="d-flex flex-column flex-center py-15 px-5 px-md-15 w-100">
           <nuxt-link :to="{name: 'index'}" class="mb-12">
             <!--            <img alt="Logo" src="assets/media/logos/custom-1.png" class="h-75px" />-->
-            <h1 style="color: white" class="text-center text-white fs-3qx fw-bolder text-center mb-7">Distribuidor de <Leads></Leads></h1>
+            <h1 style="color: white" class="text-center text-white fs-3qx fw-bolder text-center mb-7">Distribuidor de Leads</h1>
           </nuxt-link>
           <img class="mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20" src="@/assets/media/misc/auth-screens.png" alt="" />
           <h1 class="text-white ">Rápido, Eficiente e Produtivo</h1>

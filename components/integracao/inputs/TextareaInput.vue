@@ -1,18 +1,28 @@
 <template>
-  <div class="input-group mb-5">
-    <span class="input-group-text" style="min-width: 200px;">{{ input.name }}</span>
-    <input type="text" class="form-control integrationInputsTagify" :value="input.value" :id="id"/>
+
+  <span class="input-group-text" style="min-width: 200px; ;">{{ input.name }}</span>
+  <div class="mb-3">
+    <textarea class="form-control" v-model="input.value" :id="id" style="height: 500px !important;">
+    </textarea>
   </div>
+
+
 </template>
+<style>
+/*@import "";*/
+
+</style>
 
 <script setup>
+
 import {useFormularioStore} from "~/stores/formularioStore";
 const formularioStore = useFormularioStore();
 import Tagify from "@yaireo/tagify/dist/tagify.esm";
 
+
 const props = defineProps({
-  input: Object,
   optionsInput: Object,
+  input: Object,
 })
 
 const id = props.input.name + (Math.floor(Math.random() * 10000) + 10000).toString().substring(0);
@@ -61,7 +71,7 @@ onMounted(()=>{
 
   tagify.on('change', (e)=>{
     props.input.value = e.detail.value
-   // console.log(e.detail.value)
+    //console.log(e.detail.value)
   })
 
   //tagify.on('add', function(e) { console.log(e) })
@@ -73,3 +83,4 @@ onMounted(()=>{
 }*/
 
 </script>
+

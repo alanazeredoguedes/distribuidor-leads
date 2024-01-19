@@ -1,5 +1,7 @@
 const portal_corretor = {
         id: 'portal_corretor',
+        version: 1.0,
+        active: true,
         name: 'Portal do Corretor',
         description: 'Sistema de distribuição de leads, baseado em corretores, imobiliárias e construtoras da internit',
         company: 'Internit',

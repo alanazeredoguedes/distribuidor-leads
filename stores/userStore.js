@@ -6,9 +6,13 @@ import axios from 'axios'
 export const useUserStore = defineStore('user', {
     state: () => ({
         user: null,
-        authenticated: sessionStorage.get(TOKEN_NAME, null) !== null,
+        authenticated: sessionStorage.get(TOKEN_NAME, false),
     }),
     actions: {
+        isAuth()
+        {
+            return sessionStorage.get(TOKEN_NAME, false)
+        },
         login(email, password) {
             //console.log(email, password)
             return axios.post("/usuario/login", { email, password })

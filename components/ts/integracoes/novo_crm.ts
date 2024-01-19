@@ -1,5 +1,7 @@
 const novo_crm = {
         id: 'novo_crm',
+        version: 1.0,
+        active: true,
         name: 'NovoCrm',
         description: 'Sistema de registro de leads da internit, utilizado para emissão de relatórios e estatistias.',
         company: 'Internit',

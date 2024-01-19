@@ -21,7 +21,7 @@
               <div class="d-lg-block" id="kt_header_nav_wrapper">
                 <div class="d-lg-block p-5 p-lg-0" data-kt-drawer="true" data-kt-drawer-name="landing-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="200px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_landing_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav_wrapper'}">
                   <div class="menu menu-column flex-nowrap menu-rounded menu-lg-row menu-title-gray-500 menu-state-title-primary nav nav-flush fs-5 fw-semibold" id="kt_landing_menu">
-                    <div class="menu-item">
+<!--                    <div class="menu-item">
                       <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="#kt_body" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
                     </div>
                     <div class="menu-item">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="menu-item">
                       <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#pricing" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Preço</a>
-                    </div>
+                    </div>-->
                   </div>
                 </div>
               </div>
@@ -101,48 +101,54 @@
       <div class="container">
         <div class="text-center mb-17">
           <h3 class="fs-2hx text-dark mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">Como Funciona</h3>
-          <div class="fs-5 text-muted fw-bold">Save thousands to millions of bucks by using single tool
-            <br />for different amazing and great useful admin</div>
+          <div class="fs-5 text-muted fw-bold">Cadastre Empresas, crie formulários
+            <br />e implemente os fluxos de integração como desejar!</div>
         </div>
+
         <div class="row w-100 gy-10 mb-md-20">
+
           <div class="col-md-4 px-5">
             <div class="text-center mb-10 mb-md-0">
               <img src="assets/media/illustrations/sigma-1/2.png" class="mh-125px mb-9" alt="" />
               <div class="d-flex flex-center mb-5">
                 <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">1</span>
-                <div class="fs-5 fs-lg-3 fw-bold text-dark">Jane Miller</div>
+                <div class="fs-5 fs-lg-3 fw-bold text-dark">Cadastre Empresas</div>
               </div>
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-                <br />by using single tool for different
-                <br />amazing and great</div>
+              <div class="fw-semibold fs-6 fs-lg-4 text-muted">Cadastre empresas para gerenciar,
+                <br />vincule sites as empresas cadastrada
+                <br />os disponibilizando para criação de formulários</div>
             </div>
           </div>
+
           <div class="col-md-4 px-5">
             <div class="text-center mb-10 mb-md-0">
               <img src="assets/media/illustrations/sigma-1/8.png" class="mh-125px mb-9" alt="" />
               <div class="d-flex flex-center mb-5">
                 <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">2</span>
-                <div class="fs-5 fs-lg-3 fw-bold text-dark">Setup Your App</div>
+                <div class="fs-5 fs-lg-3 fw-bold text-dark">Cadastre Formulários</div>
               </div>
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-                <br />by using single tool for different
-                <br />amazing and great</div>
+              <div class="fw-semibold fs-6 fs-lg-4 text-muted">Cadastre formulários, adicione campos,
+                <br />e começe a utilizar
+                <br />o sistema</div>
             </div>
           </div>
+
           <div class="col-md-4 px-5">
             <div class="text-center mb-10 mb-md-0">
               <img src="assets/media/illustrations/sigma-1/12.png" class="mh-125px mb-9" alt="" />
               <div class="d-flex flex-center mb-5">
                 <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">3</span>
-                <div class="fs-5 fs-lg-3 fw-bold text-dark">Enjoy Nautica App</div>
+                <div class="fs-5 fs-lg-3 fw-bold text-dark">Implemente as Integrações</div>
               </div>
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-                <br />by using single tool for different
-                <br />amazing and great</div>
+              <div class="fw-semibold fs-6 fs-lg-4 text-muted">Adicione ao fluxo de integração
+                <br /> as diferentes integração disponíveis
+                <br />no sistema.</div>
             </div>
           </div>
+
+
         </div>
-        <div class="tns tns-default">
+<!--        <div class="tns tns-default">
           <div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
             <div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
               <img src="assets/media/product-demos/demo1.png" class="card-rounded shadow mw-100" alt="" />
@@ -171,7 +177,9 @@
 								</svg>
 							</span>
           </button>
-        </div>
+        </div>-->
+
+        <br> <br> <br> <br> <br> <br> <br> <br>
       </div>
     </div>
     <div class="mt-sm-n10">
@@ -180,6 +188,7 @@
           <path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
         </svg>
       </div>
+<!--
       <div class="pb-15 pt-18 landing-dark-bg">
         <div class="container">
           <div class="text-center mt-15 mb-18" id="achievements" data-kt-scroll-offset="{default: 100, lg: 150}">
@@ -248,16 +257,18 @@
           </div>
         </div>
       </div>
-      <div class="landing-curve landing-dark-color">
+-->
+<!--      <div class="landing-curve landing-dark-color">
         <svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z" fill="currentColor"></path>
         </svg>
-      </div>
+      </div>-->
     </div>
+<!--
     <div class="py-10 py-lg-20">
       <div class="container">
         <div class="text-center mb-12">
-          <h3 class="fs-2hx text-dark mb-5" id="team" data-kt-scroll-offset="{default: 100, lg: 150}">Our Great Team</h3>
+          <h3 class="fs-2hx text-dark mb-5" id="team">Começa a utilizar</h3>
           <div class="fs-5 text-muted fw-bold">It’s no doubt that when a development takes longer to complete, additional costs to
             <br />integrate and test each extra feature creeps up and haunts most of us.</div>
         </div>
@@ -313,7 +324,7 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev">
+&lt;!&ndash;          <button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev">
             <span class="svg-icon svg-icon-3x">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="currentColor" />
@@ -326,11 +337,13 @@
 									<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
 								</svg>
 							</span>
-          </button>
+          </button>&ndash;&gt;
         </div>
       </div>
     </div>
-    <div class="mb-lg-n15 position-relative z-index-2">
+-->
+
+<!--    <div class="mb-lg-n15 position-relative z-index-2">
       <div class="container">
         <div class="card" style="filter: drop-shadow(0px 0px 40px rgba(68, 81, 96, 0.08))">
           <div class="card-body p-lg-20">
@@ -859,13 +872,18 @@
         </div>
       </div>
     </div>
+    -->
+
     <div class="mb-0">
-      <div class="landing-curve landing-dark-color">
+
+<!--      <div class="landing-curve landing-dark-color">
         <svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
         </svg>
-      </div>
+      </div>-->
+
       <div class="landing-dark-bg pt-20">
+<!--
         <div class="container">
           <div class="row py-10 py-lg-20">
             <div class="col-lg-6 pe-lg-16 mb-10 mb-lg-0">
@@ -918,38 +936,28 @@
             </div>
           </div>
         </div>
+-->
         <div class="landing-dark-separator"></div>
         <div class="container">
           <div class="d-flex flex-column flex-md-row flex-stack py-7 py-lg-10">
             <div class="d-flex align-items-center order-2 order-md-1">
-              <a href="../../demo2/dist/landing.html">
-                <img alt="Logo" src="assets/media/logos/landing.svg" class="h-15px h-md-20px" />
+              <a href="https://internit.com.br" target="_blank">
+                <img alt="Logo" src="/internit.png" class="h-15px h-md-30px" />
+                <span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://internit.com.br">© 2024 Internit</span>
               </a>
-              <span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">© 2022 Keenthemes Inc.</span>
             </div>
             <ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
               <li class="menu-item">
-                <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
-              </li>
-              <li class="menu-item mx-5">
-                <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
-              </li>
-              <li class="menu-item">
-                <a href="" target="_blank" class="menu-link px-2">Purchase</a>
+                <a href="https://www.linkedin.com/in/alan-azeredo-guedes-786575191/" target="_blank" class="menu-link px-2">Desenvolvido por: Alan Guedes</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
+
     </div>
-    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-      <span class="svg-icon">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
-						<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
-					</svg>
-				</span>
-    </div>
+
+
   </div>
 </template>
 <script setup lang="ts">

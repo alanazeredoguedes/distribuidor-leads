@@ -32,11 +32,9 @@ axios.interceptors.response.use(function (response) {
 
         sessionStorage.remove(TOKEN_NAME)
 
-        // userStore.setUnauthenticated()
+         // userStore.setUnauthenticated()
         // functions.alerts.notification('error', "Erro", 'Credenciais expiradas!')
         // router.push({name: 'login'})
-
-
 
         //const response = await refreshToken(error);
         //return response;
