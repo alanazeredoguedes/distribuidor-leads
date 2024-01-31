@@ -94,8 +94,8 @@
 <!--            <router-link :class="getClassMenu('painel-formularios-id-notificacoes')" :to="{name: 'painel-formularios-id-notificacoes'}" @click="notImplemented">Notificações</router-link>-->
           </li>
           <li class="nav-item">
-            <a href="javascript:void(0)" :class="getClassMenu('painel-formularios-id-logs')" @click="notImplemented">Logs</a>
-<!--            <router-link :class="getClassMenu('painel-formularios-id-logs')" :to="{name: 'painel-formularios-id-logs'}">Logs</router-link>-->
+<!--            <a href="javascript:void(0)" :class="getClassMenu('painel-formularios-id-logs')" @click="notImplemented">Logs</a>-->
+            <router-link :class="getClassMenu('painel-formularios-id-logs')" :to="{name: 'painel-formularios-id-logs'}">Logs</router-link>
           </li>
         </ul>
 

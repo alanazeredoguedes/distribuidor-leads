@@ -154,7 +154,7 @@
         <div class="card-body p-9">
           <div class="fs-3 fw-bold text-dark">{{ (formulario.nome)? formulario.nome : '' }}</div>
           <div class="fs-8 fw-bold text-dark" style="margin-bottom: 10px;">{{ (formulario.id)? formulario.id : '' }}</div>
-          <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">{{ (formulario.site)? formulario.site.url : '' }}</p>
+          <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">{{ (formulario.site)? formulario.site.url : 'url não vinculada' }}</p>
           <div class="d-flex flex-wrap mb-5">
             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
               <div class="fs-6 text-gray-800 fw-bold">{{ (formulario.criadoEm)? formulario.criadoEm: '' }}</div>
@@ -169,7 +169,7 @@
             <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <div class="symbol-group symbol-hover">
-            <span> 2000 leads </span>
+            <span> 1000 leads </span>
           </div>
         </div>
       </nuxt-link>
@@ -215,6 +215,7 @@ onMounted(()=>{
 
 
 const filtro = reactive({
+  avancado: true,
   pesquisa: '',
   empresa: '',
   site: '',
