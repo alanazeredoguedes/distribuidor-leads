@@ -1,11 +1,24 @@
 <template>
 
-  <span class="input-group-text" style="min-width: 200px; ;">{{ input.name }}</span>
-  <div class="mb-3">
-    <textarea class="form-control" v-model="input.value" :id="id" style="min-height: 500px !important;" >
-    </textarea>
-  </div>
+  <div class="row" style="margin-bottom: 10px;" >
 
+    <div class="col-3">
+      <span class="input-group-text" style="min-width: 200px;">{{ input.name }}</span>
+    </div>
+
+    <div class="col-9 mb-3">
+        <VueMultiselectEsm
+            deselect-label="Remover"
+            select-label="Selecionar"
+            selected-label="Selecionado"
+            :allow-empty="false"
+            placeholder=""
+            v-model="input.value"
+            :close-on-select="true"
+            :options="optionsInput.options"
+        />
+    </div>
+  </div>
 
 </template>
 <style>
@@ -18,6 +31,7 @@
 import {useFormularioStore} from "~/stores/formularioStore";
 const formularioStore = useFormularioStore();
 import Tagify from "@yaireo/tagify/dist/tagify.esm";
+import VueMultiselectEsm from "vue-multiselect";
 
 
 const props = defineProps({

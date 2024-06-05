@@ -43,11 +43,9 @@
 
       <div v-for="(integrat, index) in integrationConfig.fields">
 
-        <TextInput v-if="integrat.type !== 'html'" :optionsInput="integrat" :input="getIntegrationField(integrat.name)" />
+        <TextInput v-if="integrat.type === 'texto'" :optionsInput="integrat" :input="getIntegrationField(integrat.name)" />
         <TextareaInput v-if="integrat.type === 'html'" :optionsInput="integrat" :input="getIntegrationField(integrat.name)" />
-
-
-
+        <SelectInput v-if="integrat.type === 'select'" :optionsInput="integrat" :input="getIntegrationField(integrat.name)" />
 
       </div>
 
@@ -72,6 +70,7 @@ import TextInput from "~/components/integracao/inputs/TextInput.vue";
 import {alerts} from "~/components/alerts";
 import TextareaInput from "~/components/integracao/inputs/TextareaInput.vue";
 import InfoModalAlert from "~/components/painel/formularios/InfoModalAlert.vue";
+import SelectInput from "~/components/integracao/inputs/SelectInput.vue";
 
 const props = defineProps({
   integration: Object,
